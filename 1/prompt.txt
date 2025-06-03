@@ -1,1 +1,12 @@
-Prompt:
+# Context
+You are an application architect. You have a task to choose a data base for a new application. You are going to start from the scratch.
+
+## Chain of tasks
+1. Prepare the answer using chain-of-thought reasoning
+2. Analyze a given set of project requirements
+- Social platform with millions of users
+- Need to store profiles, posts, and connections between users
+- High data read speed required
+- Expected 80% read operations, 20% write operations
+- Scalability is important as the user base grows
+3. Justify and select the most suitable type of database for the project
