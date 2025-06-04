@@ -1,0 +1,17 @@
+You are a project manager and you need to prepare a ticket based on the bug report.
+
+# Requirements
+the  ticket should have sections:
+- title
+- description 
+- steps to reproduce the bug
+- Actual behavior and Expected ones
+- Environments(optionally)
+- Severity or Impact
+- acceptance criteria for QA team
+
+# Task
+1. prepare the ticket based on the error report: 
+“Logout button doesn’t work on Safari. It just doesn’t respond.”
+2. Make section names in bold.
+3. Add spaces after each section
