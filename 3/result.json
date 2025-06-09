@@ -1,0 +1,19 @@
+{
+  "summary": "Remote work has grown in popularity, especially after the global pandemic, offering benefits like increased job satisfaction, flexibility, and cost savings for companies. However, challenges such as employee isolation, productivity issues, and communication difficulties persist. Despite these drawbacks, remote work is expected to remain prevalent, with hybrid models and advancing technology facilitating its adoption.",
+  "sentiment_analysis": {
+    "classification": "positive",
+    "sentiment_score": 0.75,
+    "explanation": "The text highlights numerous advantages of remote work (e.g., job satisfaction, flexibility, cost savings) and acknowledges challenges without overly negative language. The overall tone leans optimistic about its future."
+  },
+  "metadata": {
+    "source_text_length": 3,
+    "source_text_paragraphs": 3,
+    "key_themes": [
+      "remote work benefits",
+      "remote work challenges",
+      "future of remote work"
+    ],
+    "language": "en",
+    "processed_at": "2025-06-09"
+  }
+}
