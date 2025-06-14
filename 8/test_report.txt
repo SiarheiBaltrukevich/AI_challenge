@@ -1,0 +1,40 @@
+PASS ./library.test.js
+  StringValidator
+    ✓ validates string type (2 ms)
+    ✓ validates minLength
+    ✓ validates maxLength (1 ms)
+    ✓ validates pattern
+    ✓ supports custom error messages
+  NumberValidator
+    ✓ validates number type
+    ✓ validates min value
+    ✓ validates max value
+  BooleanValidator
+    ✓ validates boolean type
+  DateValidator
+    ✓ validates date type (1 ms)
+    ✓ validates min date
+    ✓ validates max date (1 ms)
+  ObjectValidator
+    ✓ validates object type
+    ✓ validates required fields
+    ✓ validates field types
+    ✓ validates nested objects
+  ArrayValidator
+    ✓ validates array type (1 ms)
+    ✓ validates array items
+    ✓ validates minLength
+    ✓ validates maxLength
+    ✓ validates unique values
+
+------------|---------|----------|---------|---------|-------------------
+File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------|---------|----------|---------|---------|-------------------
+All files   |   99.21 |    95.23 |     100 |    99.2 |                   
+ library.js |   99.21 |    95.23 |     100 |    99.2 | 192               
+------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       21 passed, 21 total
+Snapshots:   0 total
+Time:        0.303 s
+Ran all test suites.
