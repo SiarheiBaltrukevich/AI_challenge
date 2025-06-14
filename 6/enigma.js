@@ -35,11 +35,13 @@ class Rotor {
   }
   forward(c) {
     const idx = mod(alphabet.indexOf(c) + this.position - this.ringSetting, 26);
-    return this.wiring[idx];
+    const result = this.wiring[idx];
+    return alphabet[mod(alphabet.indexOf(result) - this.position + this.ringSetting, 26)];
   }
   backward(c) {
-    const idx = this.wiring.indexOf(c);
-    return alphabet[mod(idx - this.position + this.ringSetting, 26)];
+    const idx = mod(alphabet.indexOf(c) + this.position - this.ringSetting, 26);
+    const result = this.wiring.indexOf(alphabet[idx]);
+    return alphabet[mod(result - this.position + this.ringSetting, 26)];
   }
 }
 
@@ -57,25 +59,43 @@ class Enigma {
     this.plugboardPairs = plugboardPairs;
   }
   stepRotors() {
-    if (this.rotors[2].atNotch()) this.rotors[1].step();
-    if (this.rotors[1].atNotch()) this.rotors[0].step();
+    const middleRotorAtNotch = this.rotors[1].atNotch();
+    const rightRotorAtNotch = this.rotors[2].atNotch();
+    
+    if (rightRotorAtNotch || middleRotorAtNotch) {
+      this.rotors[0].step();
+    }
+    if (rightRotorAtNotch) {
+      this.rotors[1].step();
+    }
     this.rotors[2].step();
+  }
+  plugboardSwap(c) {
+    return plugboardSwap(c, this.plugboardPairs);
   }
   encryptChar(c) {
     if (!alphabet.includes(c)) return c;
+    
     this.stepRotors();
-    c = plugboardSwap(c, this.plugboardPairs);
+    
+    // First plugboard swap
+    c = this.plugboardSwap(c);
+    
+    // Forward through rotors
     for (let i = this.rotors.length - 1; i >= 0; i--) {
       c = this.rotors[i].forward(c);
     }
 
+    // Through reflector
     c = REFLECTOR[alphabet.indexOf(c)];
 
+    // Backward through rotors
     for (let i = 0; i < this.rotors.length; i++) {
       c = this.rotors[i].backward(c);
     }
 
-    return c;
+    // Second plugboard swap
+    return this.plugboardSwap(c);
   }
   process(text) {
     return text
@@ -121,3 +141,5 @@ function promptEnigma() {
 if (require.main === module) {
   promptEnigma();
 }
+
+module.exports = { Enigma, Rotor };
